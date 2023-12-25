@@ -1,0 +1,11 @@
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand">Sell&Buy</a>
+      <% if(page != undefined && page!="home") {%>
+      <form action="/searchByName" method="post" class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search product by name" name="searchProduct">
+        <button class="btn btn-outline-success" id="searchProductBtn" type="submit">Search</button>
+      </form>
+      <% } %>
+    </div>
+  </nav>

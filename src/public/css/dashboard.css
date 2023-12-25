@@ -1,0 +1,21 @@
+.profile>img{
+    width: 50%;
+}
+.container{
+    margin: 5%;
+    background-color: rgb(208, 208, 247);
+    border: 1px solid rgb(208, 208, 247);
+    border-radius: 1%;
+    padding: 5%;
+}
+
+.details>h3{
+    font-size: large;
+    color: rgb(3, 3, 175);
+}
+.details>h3>span{
+    color: green;
+}
+.details>a{
+    color: black;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell Products</title>
+  <script src="https://kit.fontawesome.com/55ad432767.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <%- include('partials/navbar',{page:"index"}) %>
+  <div class="container text-center shadow p-3 mb-5 ">
+    <div class="d-flex justify-content-between">
+      <h1 class="heading">Product List</h1>
+      <a href="/sell" class="btn btn-outline-success" type="button" id="sell">Sell</a>
+    </div>
+    <hr>
+    <div class="row">
+      <% for(let item of productData){ %>
+        <div class="col">
+          <div class="card mt-3" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Product Name:<%= item.productName %>
+              </h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Cost price:<%= item.costPrice %>
+              </h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <p>Selling Price :<% if(item.soldPrice !=undefined) %>
+                  <%= item.soldPrice %>
+              </p>
+              <div class="d-flex justify-content-between">
+                <a href="/sellProduct/<%=item._id %>" class="card-link">Edit</a>
+                <form action="/sellProduct/<%=item._id %>?_method=DELETE" method="post">
+                  <button type="submit" class="btn btn-primary">Delete</button>
+                </form>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+    </div>
+    <div>
+      <div class="sortingSection">
+        <span><b>Sort By:</b> Cost Price </span>
+        <a href="/sellProduct?sortBy=higherCostPrice" class="card-link"><i class="fa-solid fa-caret-up"></i></a>
+        <a href="/sellProduct?sortBy=lowerCostPrice" class="card-link"><i class="fa-solid fa-sort-down"></i></a>
+        <span class="ms-2">Sold Price </span>
+        <a href="/sellProduct?sortBy=higherSoldPrice" class="card-link"><i class="fa-solid fa-caret-up"></i></a>
+        <a href="/sellProduct?sortBy=lowerSoldPrice" class="card-link"><i class="fa-solid fa-sort-down"></i></a>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

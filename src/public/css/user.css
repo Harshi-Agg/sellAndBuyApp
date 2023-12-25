@@ -1,0 +1,39 @@
+.container{
+    margin: 5%;
+}
+.loginDiv{
+    width: 50%;
+    margin: 5%;
+    border: 1px solid green;
+    border-radius: 1%;
+    padding: 2%;
+    background-color: rgb(193, 245, 193);
+}
+.loginDiv >h2{
+    color: green;
+}
+.loginDiv>form>button{
+    background-color: green;
+    border: none;
+}
+.loginDiv>form>button:hover{
+    background-color: green;
+}
+.createAccountDiv{
+    width: 50%;
+    margin: 5%;
+    border: 1px solid red;
+    border-radius: 1%;
+    padding: 2%;
+    background-color: rgb(243, 182, 182);
+}
+.createAccountDiv>h2{
+    color: red;
+}
+.createAccountDiv>form>button{
+    background-color: red;
+    border: none;
+}
+.createAccountDiv>form>button:hover{
+    background-color: red;
+}

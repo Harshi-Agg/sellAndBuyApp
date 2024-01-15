@@ -1,11 +1,14 @@
 <nav class="navbar bg-body-tertiary">
-    <div class="container-fluid">
+    <div class="container-fluid d-flex justify-content-between">
       <a class="navbar-brand">Sell&Buy</a>
-      <% if(page != undefined && page!="home") {%>
-      <form action="/searchByName" method="post" class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search product by name" name="searchProduct">
-        <button class="btn btn-outline-success" id="searchProductBtn" type="submit">Search</button>
-      </form>
-      <% } %>
+        <% if(page != undefined && page!="home") {%>
+          <% if(page != undefined && page!="dashboard") {%>
+          <form action="/searchByName" method="post" class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search product by name" name="searchProduct">
+            <button class="btn btn-outline-success" id="searchProductBtn" type="submit">Search</button>
+          </form>
+          <% } %>
+          <a href="/logout" class="btn btn-primary">Logout</a>
+        <% } %>
     </div>
   </nav>

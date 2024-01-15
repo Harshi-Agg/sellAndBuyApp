@@ -9,11 +9,13 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/flash.css">
+    <script src="/js/jquery.js"></script>
 </head>
 
 <body>
   <%- include('partials/navbar',{page:"sell"}) %>
-
+  <%- include('./flash.ejs') %>
   <div class="container shadow p-3 mb-5 ">
     <div class="d-flex justify-content-between">
       <h1 class="heading">Add Product</h1>
@@ -21,14 +23,20 @@
     </div>
     <hr>
     <div class="container">
-        <form action="/sellProduct" method="post">
+        <form action="/sellProduct" method="post" class="needs-validation" novalidate>
             <div class="mb-3">
               <label for="productName" class="form-label">Product Name</label>
-              <input type="text" class="form-control" id="productName" name="productName">
+              <input type="text" class="form-control" id="productName" name="productName" required>
+              <div class="invalid-feedback">
+                Product name is required
+              </div>
             </div>
             <div class="mb-3">
               <label for="costPrice" class="form-label">Cost Price</label>
-              <input type="number" class="form-control" id="costPrice" name="costPrice">
+              <input type="number" class="form-control" id="costPrice" name="costPrice" required>
+              <div class="invalid-feedback">
+                Cost Price is required
+              </div>
             </div>
             <div class="mb-3">
               <label for="costPrice" class="form-label">Product Category</label>
@@ -39,10 +47,16 @@
               </select>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
+            <% if(locals.errMsg){ %>
+            <div class="m-3">
+              <p class="error"><%= errMsg %></p>
+            </div>
+            <% } %>
           </form>
     </div>
   </div>
-  <script src="/js/sellScript.js"></script>
+  <script src="/js/clientValidation.js"></script>
+  <%- include('partials/footer') %>
 </body>
 
 </html>

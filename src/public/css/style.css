@@ -17,3 +17,10 @@
 .sortingSection{
     margin-top: 4%;
 }
+#accordion{
+    border: none;
+    background-color: aliceblue;
+}
+.error{
+    color: red;
+}
